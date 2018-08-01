@@ -38,7 +38,8 @@ flattr_category: audio # available categories - https://api.flattr.com/rest/v2/c
 disqus_shortname: # Disqus will not be used unless this is set
 disqus_developer: 0 # 1 / 0
 ## Itunes link ###########################################################
-itunes_url: "https://itunes.apple.com/at/podcast/myname/id#myid#"
+itunes_url:
+# "https://itunes.apple.com/at/podcast/myname/id#myid#"
 ## Isso comments #########################################################
 use_isso: no # set to 'yes' to include isso comments form
 
