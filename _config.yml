@@ -1,11 +1,11 @@
 # You have to configure this ###################################################
-title: Hardcode
+title: HardcodeFM
 # You should configure this ####################################################
 url: https://hardcode.fm
 download_url: "https://hardcode.fm"
 subtitle: Подкаст о практике программирования
 description: Подкаст о практике программирования
-author: Hardcode Podcast
+author: HardcodeFM Podcast
 author_url: "https://hardcode.fm"
 email: podcast@hardcode.fm
 keywords: [podcast, ruby, javascript, clojure]
