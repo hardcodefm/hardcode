@@ -57,7 +57,7 @@ layout: null
           <item>
             <title>{{ post.title }} - {{ post.subtitle }}</title>
             <link>{{ site.url }}{{ post.url }}</link>
-            <atom:link rel="http://podlove.org/deep-link" href="{{ site.url }}/players/{{ post.slug }}"/>
+            <atom:link href="{{ site.url }}/players/{{ post.slug }}"/>
             <comments>{{ site.url }}{{ post.url }}#disqus_thread</comments>
             <pubDate>{{ post.date | time_to_rssschema }}</pubDate>
             {% for category in post.categories %}

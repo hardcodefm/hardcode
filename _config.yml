@@ -2,12 +2,12 @@
 title: Hardcode
 # You should configure this ####################################################
 url: https://hardcode.fm
-download_url: "https://hardcode.fm/"
+download_url: "https://hardcode.fm"
 subtitle: Подкаст о практике программирования
 description: '*записываемся на утюг'
-author: Hardcode Crew
+author: Hardcode Podcast
 author_url: "https://hardcode.fm"
-email: hardcode@razum2um.me
+email: podcast@hardcode.fm
 keywords: [podcast, ruby, javascript, clojure]
 itunes_categories: [Technology]
 episodes_per_feed_page: 100
