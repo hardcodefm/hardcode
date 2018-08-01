@@ -20,7 +20,7 @@ date_format: "ordinal"
 ## Rsync Deploy config #########################################################
 ### Be sure your public key is listed in your server's ~/.ssh/authorized_keys
 ### file.
-ssh_host: hardcode.fm
+ssh_host: hardcode@hardcode.fm
 ssh_port: 2223
 document_root: /home/hardcode/hardcode
 rsync_delete: true
