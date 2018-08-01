@@ -1,7 +1,9 @@
 // Improve visibility of subtitles and similar text by increasing contrast
 body .container-fluid {
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
+    font-family: 'Helvetica';
     font-weight: 300;
+    padding-top: 50px;
 }
 
 h1 small, h2 small, h3 small {

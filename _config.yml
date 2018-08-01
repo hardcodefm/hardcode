@@ -4,7 +4,7 @@ title: Hardcode
 url: http://localhost:4000
 download_url: "http://your.fancy.hosting/episodes"
 subtitle: Подкаст о практике программирования
-description:
+description: Записываемся на утюг (пока что)
 author: Vlad Bokov
 author_url: "https://razum2um.me" # This is the URL of a site owned by the author (s. https://jsonfeed.org/version/1)
 email: vlad@razum2um.me
@@ -22,10 +22,10 @@ date_format: "ordinal"
 ### file.
 ssh_host: hardcode.fm
 ssh_port: 2223
-document_root: /home/hardcode
+document_root: /home/hardcode/hardcode
 rsync_delete: true
 # You can configure this #######################################################
-twitter_nick: razum2um
+twitter_nick: hardcodefm
 language: ru
 explicit: 'no'  # 'yes'/'no'/clean
 license: CC BY 4.0
