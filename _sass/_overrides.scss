@@ -1,4 +1,9 @@
 // Improve visibility of subtitles and similar text by increasing contrast
+body .container-fluid {
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+
 h1 small, h2 small, h3 small {
   color: #77778C;
 }

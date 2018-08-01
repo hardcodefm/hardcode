@@ -1,14 +1,14 @@
 # You have to configure this ###################################################
-title: Octopod
+title: Hardcode
 # You should configure this ####################################################
 url: http://localhost:4000
 download_url: "http://your.fancy.hosting/episodes"
-subtitle: Static Site Podcast Publishing for Geeks
-description: My super duper cool podcast.
-author: Uncle Octopod
-author_url: "http://your.fancy.hosting/" # This is the URL of a site owned by the author (s. https://jsonfeed.org/version/1)
-email: octopod@example.com
-keywords: [octopod, podcast, magic]
+subtitle: Подкаст о практике программирования
+description:
+author: Vlad Bokov
+author_url: "https://razum2um.me" # This is the URL of a site owned by the author (s. https://jsonfeed.org/version/1)
+email: vlad@razum2um.me
+keywords: [podcast, ruby, javascript, clojure]
 itunes_categories: [Technology]
 # additional_feeds:
 #   itunes: http://itunes.apple.com/de/podcast/podcast_name/id42424242
@@ -20,13 +20,13 @@ date_format: "ordinal"
 ## Rsync Deploy config #########################################################
 ### Be sure your public key is listed in your server's ~/.ssh/authorized_keys
 ### file.
-ssh_host: user@host.org
-ssh_port: 22
-document_root: /path/to/your/htdocs/
+ssh_host: hardcode.fm
+ssh_port: 2223
+document_root: /home/hardcode
 rsync_delete: true
 # You can configure this #######################################################
-twitter_nick: my_twitter_handle
-language: en
+twitter_nick: razum2um
+language: ru
 explicit: 'no'  # 'yes'/'no'/clean
 license: CC BY 4.0
 ## Flattr ######################################################################
@@ -44,5 +44,5 @@ itunes_url: "https://itunes.apple.com/at/podcast/myname/id#myid#"
 ## Isso comments #########################################################
 use_isso: no # set to 'yes' to include isso comments form
 
-gems: [jekyll-octopod]
+plugins: [jekyll-octopod]
 theme: jekyll-bootflat
