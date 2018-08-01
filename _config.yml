@@ -44,6 +44,8 @@ use_isso: no # set to 'yes' to include isso comments form
 
 plugins:
   - jekyll-octopod
+  - jekyll-feed
+  - jekyll-admin
 
 theme: jekyll-bootflat
 
