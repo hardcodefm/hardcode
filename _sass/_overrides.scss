@@ -48,8 +48,10 @@ section:first-child {
   h1 {
     background: #434A54;
     display: inline-block;
-    color: white;
     margin-bottom: 5px;
+    a {
+      color: white;
+    }
   }
   h2 {
     font-size: 18px;
