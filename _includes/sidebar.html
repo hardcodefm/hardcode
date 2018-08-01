@@ -6,9 +6,9 @@
 <p class="text-center"><img width="200px" src="{{ site.url }}/img/logo.svg" alt="{{ site.title }} logo"></p>
 <p class="underlogo">*записываемся на утюг</p>
 
-{% if site.description %}<p class="description">{{ site.description }}</p>{% endif %}
-
 {% comment %}
+  {% if site.description %}<p class="description">{{ site.description }}</p>{% endif %}
+
   <script class="podlove-subscribe-button"
           src="/subscribe-button/javascripts/app.js"
           data-language="{{ site.language }}"
@@ -98,6 +98,6 @@
   <a href="https://twitter.com/{{ site.twitter_nick }}"
      class="button btn-primary btn-sm"
      data-show-count="false">
-    <i class="fa fa-twitter"></i>Follow @{{ site.twitter_nick }}
+      <i class="fa fa-twitter"></i>&nbsp;Напишите нам @{{ site.twitter_nick }}
   </a>
 {% endif %}
