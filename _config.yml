@@ -47,11 +47,12 @@ plugins:
   - jekyll-octopod
   - jekyll-feed
   - jekyll-admin
+  - jekyll-analytics
 
 theme: jekyll-bootflat
 
 exclude:
-  - checkfont.py
+  - bin
   - vendor
 
 defaults:
@@ -61,3 +62,7 @@ defaults:
       type: "posts"
     values:
       episode_cover: '/img/logo.svg'
+
+jekyll_analytics:
+  GoogleAnalytics:
+    id: UA-123265437-1

@@ -46,6 +46,7 @@ GEM
       jekyll (~> 3.3)
       sinatra (~> 1.4)
       sinatra-contrib (~> 1.4)
+    jekyll-analytics (0.1.11)
     jekyll-bootflat (0.2.4)
       jekyll (~> 3.3)
     jekyll-feed (0.10.0)
@@ -112,6 +113,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 3.8.3)
+  jekyll-analytics
   jekyll-feed (~> 0.6)
   jekyll-octopod!
   minima (~> 2.0)

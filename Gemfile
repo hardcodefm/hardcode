@@ -30,4 +30,6 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 gem 'jekyll-octopod', github: 'razum2um/jekyll-octopod'
 
+gem 'jekyll-analytics'
+
 gem 'pry-byebug'
