@@ -1,16 +1,15 @@
 <div class="page-header">
-  <h3>
-    {{ site.title }}
-    {% if site.subtitle %}<br/><small>{{ site.subtitle }}</small>{% endif %}
-  </h3>
+  <h1>{{ site.title }}</h1>
+  {% if site.subtitle %}<br/><h2>{{ site.subtitle }}</h2>{% endif %}
 </div>
 
 <p class="text-center">
-  <img width="200px" src="{{ site.url }}/img/logo-360x360.png" alt="{{ site.title }} logo">
+  <img width="200px" src="{{ site.url }}/img/logo.svg" alt="{{ site.title }} logo">
 </p>
 
-{% if site.description %}<p>{{ site.description }}</p>{% endif %}
+{% if site.description %}<p class="description">{{ site.description }}</p>{% endif %}
 
+{% comment %}
   <script class="podlove-subscribe-button"
           src="/subscribe-button/javascripts/app.js"
           data-language="{{ site.language }}"
@@ -25,7 +24,7 @@
       "title": "{{ site['title']}}",
       "subtitle": "{{ site['subtitle']}}",
       "description": "{{ site['description']}}",
-      "cover": "{{ site.url }}/img/logo-360x360.png",
+      "cover": "{{ site.url }}/img/logo.svg",
       "feeds": [
       {% for feed in site['episode_feed_formats'] %}
         {
@@ -39,53 +38,45 @@
       ]
     }
   </script>
-</p>
+{% endcomment %}
 
 <hr/>
 
-<h4>RSS-Feeds</h4>
+<h4>Подписаться</h4>
 
-<ol type="i">
+<ul class="links">
   {% for feed in site['episode_feed_formats'] %}
-    <li><a href="{{ site['url']}}/episodes.{{ feed }}.rss"><i class="fa fa-rss"></i> {{ feed }}-RSS-Feed</a></li>
+    <li><a href="{{ site['url']}}/episodes.{{ feed }}.rss"><i class="fa fa-rss"></i>&nbsp;RSS Feed ({{ feed }})</a></li>
   {% endfor %}
-</ol>
 
-<h4>JSON-Feeds</h4>
 
-<ol type="i">
   {% for jsonfeed in site['json_feed_formats'] %}
-    <li><a href="{{ site['url']}}/feed.{{ jsonfeed }}.json"><i class="fa fa-rss-square"></i> {{ jsonfeed }}-JSON-Feed</a></li>
+    <li><a href="{{ site['url']}}/feed.{{ jsonfeed }}.json"><i class="fa fa-rss-square"></i>&nbsp;JSON Feed ({{ jsonfeed }})</a></li>
   {% endfor %}
-</ol>
 
-
-
-<h4>Directories</h4>
-
-<ol type="i">
   {% if site.itunes_url %}
-    <li>in Apple-<a href="{{ site.itunes_url }}"><i class="fa fa-apple"></i> Itunes</a></li>
+  <li><a href="{{ site.itunes_url }}"><i class="fa fa-apple"></i>&nbsp;iTunes</a></li>
   {% endif %}
   {% if site.bitlove_url %}
-    <li>as Torrents at <a href="{{ site.bitlove_url }}"><img src="https://bitlove.org/static/favicon.png"/> Bitlove</a></li>
+  <li>as Torrents at <a href="{{ site.bitlove_url }}"><img src="https://bitlove.org/static/favicon.png"/> Bitlove</a></li>
   {% endif %}
   {% if site.fyyd_url %}
-    <li>at the podcast search engine <a href="{{ site.fyyd_url }}">Fyyd</a></li>
+  <li>at the podcast search engine <a href="{{ site.fyyd_url }}">Fyyd</a></li>
   {% endif %}
   {% if site.gpodder_url %}
-    <li>at <a href="{{ site.gpodder_url }}"><img src="https://gpodder.net/media/gpoddernet_64.png" height="16" /> Gpodder.net</a></li>
+  <li>at <a href="{{ site.gpodder_url }}"><img src="https://gpodder.net/media/gpoddernet_64.png" height="16" /> Gpodder.net</a></li>
   {% endif %}
-</ol>
-
-
-<h4>Credits</h4>
-
-<ul>
-  <li>Music: <a href="http://www.bensound.com/royalty-free-music">Bensound</a></li>
 </ul>
 
-<h4>License</h4>
+
+<h4>Благодарности</h4>
+
+<ul>
+    <li>Музыка: <a target="_blank" rel="nofollow noopener noreferrer" href="https://incompetech.com/music/royalty-free/music.html">"What You Want" Kevin MacLeod</a></li>
+    <li>Утюг: <a target="_blank" rel="nofollow noopener noreferrer" href="https://pixabay.com/ru/%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%B0-%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9-29415/">Clker Free Vector Images</a></li>
+</ul>
+
+<h4>Лицензия</h4>
 
 {% if site.license_url %}
   <a rel="license" href="{{ site.license_url }}">

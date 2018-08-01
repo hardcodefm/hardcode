@@ -4,16 +4,12 @@ title: Hardcode
 url: https://hardcode.fm
 download_url: "https://hardcode.fm/"
 subtitle: Подкаст о практике программирования
-description: Записываемся на утюг (пока что)
-author: Vlad Bokov
-author_url: "https://razum2um.me" # This is the URL of a site owned by the author (s. https://jsonfeed.org/version/1)
-email: vlad@razum2um.me
+description: '*записываемся на утюг'
+author: Hardcode Crew
+author_url: "https://hardcode.fm"
+email: hardcode@razum2um.me
 keywords: [podcast, ruby, javascript, clojure]
 itunes_categories: [Technology]
-# additional_feeds:
-#   itunes: http://itunes.apple.com/de/podcast/podcast_name/id42424242
-#   torrent_m4a: http://bitlove.org/example_user/example_podcast_m4a/feed
-#   torrent_mp3: http://bitlove.org/example_user/example_podcast_mp3/feed
 episodes_per_feed_page: 100
 # Date can be localized via date_de.rb plugin
 date_format: "ordinal"
@@ -29,6 +25,8 @@ twitter_nick: hardcodefm
 language: ru
 explicit: 'no'  # 'yes'/'no'/clean
 license: CC BY 4.0
+license_url: https://creativecommons.org/licenses/by/4.0/
+license_image_url: /img/license.png
 ## Flattr ######################################################################
 flattr_uid: # Flattr will not be used unless this is set
 flattr_button: compact # compact | default
@@ -44,5 +42,19 @@ itunes_url: "https://itunes.apple.com/at/podcast/myname/id#myid#"
 ## Isso comments #########################################################
 use_isso: no # set to 'yes' to include isso comments form
 
-plugins: [jekyll-octopod]
+plugins:
+  - jekyll-octopod
+
 theme: jekyll-bootflat
+
+exclude:
+  - checkfont.py
+  - vendor
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      episode_cover: '/img/logo.svg'

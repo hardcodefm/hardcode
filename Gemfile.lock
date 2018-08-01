@@ -1,9 +1,21 @@
+GIT
+  remote: git://github.com/razum2um/jekyll-octopod.git
+  revision: 9018a5455eddaaf9e4391846237214db894479e3
+  specs:
+    jekyll-octopod (0.9.6)
+      facets (~> 3.1)
+      jekyll (~> 3.3, >= 3.3.1)
+      jekyll-admin (~> 0.4.0)
+      jekyll-bootflat (~> 0.2.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     backports (3.11.3)
+    byebug (10.0.2)
+    coderay (1.1.2)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
     em-websocket (0.5.1)
@@ -38,11 +50,6 @@ GEM
       jekyll (~> 3.3)
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
-    jekyll-octopod (0.9.6)
-      facets (~> 3.1)
-      jekyll (~> 3.3, >= 3.3.1)
-      jekyll-admin (~> 0.4.0)
-      jekyll-bootflat (~> 0.2.4)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.5.0)
@@ -56,6 +63,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
+    method_source (0.9.0)
     minima (2.5.0)
       jekyll (~> 3.5)
       jekyll-feed (~> 0.9)
@@ -63,6 +71,12 @@ GEM
     multi_json (1.13.1)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
     public_suffix (3.0.2)
     rack (1.6.10)
     rack-protection (1.5.5)
@@ -99,8 +113,9 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.8.3)
   jekyll-feed (~> 0.6)
-  jekyll-octopod
+  jekyll-octopod!
   minima (~> 2.0)
+  pry-byebug
   tzinfo-data
 
 BUNDLED WITH

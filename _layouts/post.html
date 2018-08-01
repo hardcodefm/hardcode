@@ -5,6 +5,8 @@ layout: with_twitter_card
   {% if post.url == page.url %}
     {% include post.html %}
   {% else %}
-    {% include post_line.html %}
+    {% comment %}
+      {% include post_line.html %}
+    {% endcomment %}
   {% endif %}
 {% endfor %}
