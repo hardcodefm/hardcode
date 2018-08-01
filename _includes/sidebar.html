@@ -76,8 +76,8 @@
     <li>Утюг: <a target="_blank" rel="nofollow noopener noreferrer" href="https://pixabay.com/ru/%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%B0-%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9-29415/">Clker Free Vector Images</a></li>
 </ul>
 
+{% comment %}
 <h4>Лицензия</h4>
-
 {% if site.license_url %}
   <a rel="license" href="{{ site.license_url }}">
     {% if site.license_image_url %}
@@ -87,14 +87,15 @@
     {% endif %}
   </a>
 {% endif %}
-
-<hr/>
+{% endcomment %}
 
 {% if site.flattr_uid %}
   <span class="pull-left">{{ site | flattr_button }}</span>
 {% endif %}
 
 {% if site.twitter_nick %}
+  <h4>Обратная связь</h4>
+
   <a href="https://twitter.com/{{ site.twitter_nick }}"
      class="button btn-primary btn-sm"
      data-show-count="false">
