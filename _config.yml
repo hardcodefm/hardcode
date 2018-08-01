@@ -1,8 +1,8 @@
 # You have to configure this ###################################################
 title: Hardcode
 # You should configure this ####################################################
-url: http://localhost:4000
-download_url: "http://your.fancy.hosting/episodes"
+url: https://hardcode.fm
+download_url: "https://hardcode.fm/"
 subtitle: Подкаст о практике программирования
 description: Записываемся на утюг (пока что)
 author: Vlad Bokov
