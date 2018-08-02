@@ -2,7 +2,7 @@
 module HardcodeAuthor
   AUTHOR_LINKS = {
     'Владимир' => 'https://twitter.com/razum2um',
-    'Иван' => 'https://github.com/shredder-rull'
+    'Иван' => 'https://twitter.com/ShredderRull'
   }
 
   def hardcode_author_link(name)
