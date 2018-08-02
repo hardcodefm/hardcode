@@ -58,7 +58,9 @@ section:first-child {
   }
   ul {
     list-style: none;
-    margin-bottom: 5px;
+    li {
+        margin-bottom: 5px;
+    }
   }
   .underlogo {
     text-align: right;

@@ -95,9 +95,13 @@
 {% if site.twitter_nick %}
   <h4>Обратная связь</h4>
 
-  <a href="https://twitter.com/{{ site.twitter_nick }}"
+  <ul>
+  <li><a href="https://twitter.com/{{ site.twitter_nick }}"
      class="button btn-primary btn-sm"
      data-show-count="false">
-      <i class="fa fa-twitter"></i>&nbsp;Напишите нам @{{ site.twitter_nick }}
-  </a>
+      <i class="fa fa-twitter"></i>&nbsp;Следите за @{{ site.twitter_nick }}
+  </a></li>
+  <li><a href="mailto:{{ site.email }}">
+      <i class="fa fa-envelope"></i>&nbsp;Напишите нам
+  </a></li>
 {% endif %}
