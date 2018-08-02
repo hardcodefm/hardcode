@@ -1,8 +1,8 @@
 # coding: utf-8
 module HardcodeAuthor
   AUTHOR_LINKS = {
-    'Влад Боков' => 'https://twitter.com/razum2um',
-    'Иван Рудских' => 'https://github.com/shredder-rull'
+    'Владимир' => 'https://twitter.com/razum2um',
+    'Иван' => 'https://github.com/shredder-rull'
   }
 
   def hardcode_author_link(name)
