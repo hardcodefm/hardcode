@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/razum2um/jekyll-bootflat.git
+  revision: c352f189ad8147f94abea00bb0e546ea97c2403f
+  specs:
+    jekyll-bootflat (0.2.4)
+      font-awesome-sass (~> 5.2)
+      jekyll (~> 3.3)
+
+GIT
   remote: git://github.com/razum2um/jekyll-octopod.git
   revision: 9018a5455eddaaf9e4391846237214db894479e3
   specs:
@@ -24,6 +32,8 @@ GEM
     eventmachine (1.2.7)
     facets (3.1.0)
     ffi (1.9.25)
+    font-awesome-sass (5.2.0)
+      sassc (>= 1.11)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
@@ -47,8 +57,6 @@ GEM
       sinatra (~> 1.4)
       sinatra-contrib (~> 1.4)
     jekyll-analytics (0.1.11)
-    jekyll-bootflat (0.2.4)
-      jekyll (~> 3.3)
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
@@ -84,6 +92,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -95,6 +104,9 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (1.12.1)
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -114,11 +126,13 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.8.3)
   jekyll-analytics
+  jekyll-bootflat!
   jekyll-feed (~> 0.6)
   jekyll-octopod!
   minima (~> 2.0)
   pry-byebug
+  rake
   tzinfo-data
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

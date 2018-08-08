@@ -13,7 +13,7 @@
     {% endif %}
   <hr>
   {{ site | flattr_button:post }}
-  <a target="_blank" rel="nofollow noopener noreferrer" href="https://twitter.com/share?url={{ site.url }}{{ post.url }}&text={{ post.title | url_encode }}&hashtags=hardcodefm" class="button btn-primary btn-sm"><i class="fa fa-twitter"></i> Tweet</a>
+  <a target="_blank" rel="nofollow noopener noreferrer" href="https://twitter.com/share?url={{ site.url }}{{ post.url }}&text={{ post.title | url_encode }}&hashtags=hardcodefm" class="button btn-primary btn-sm"><i class="fab fa-twitter"></i> Tweet</a>
   {% unless page.url == '/index.html' %}{% include disqus_thread.html %}{% endunless %}
   {% unless page.url == '/index.html' %}{% include isso_thread.html %}{% endunless %}
   <hr>

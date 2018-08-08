@@ -39,13 +39,13 @@ disqus_shortname: # Disqus will not be used unless this is set
 disqus_developer: 0 # 1 / 0
 ## Itunes link ###########################################################
 itunes_url: 'https://itunes.apple.com/ru/podcast/hardcode/id1420737307'
+google_play_url: 'https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&apn=com.google.android.music&link=https://play.google.com/music/m/Ixem5k6qx5s7ovy7zcylz55nvji?t%3DHardcodeFM%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16'
 ## Isso comments #########################################################
 use_isso: no # set to 'yes' to include isso comments form
 
 plugins:
   - jekyll-octopod
   - jekyll-feed
-  - jekyll-admin
   - jekyll-analytics
 
 theme: jekyll-bootflat
