@@ -65,3 +65,10 @@ defaults:
 jekyll_analytics:
   GoogleAnalytics:
     id: UA-123265437-1
+
+kramdown:
+  input: 'NoopenerGFM'
+  same_tab_domains:
+    - localhost
+    - 127.0.0.1
+    - hardcode.fm
