@@ -34,4 +34,7 @@ gem 'jekyll-bootflat', github: 'razum2um/jekyll-bootflat'
 gem 'jekyll-analytics'
 
 gem 'pry-byebug'
-gem 'rake'
+gem 'rake' # need by sassc
+gem 'thor'
+gem 'nokogiri'
+gem 'ruby-mp3info'

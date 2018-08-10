@@ -1,0 +1,86 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'thor'
+require 'digest'
+require 'mp3info'
+require 'yaml'
+require 'pry'
+require 'nokogiri'
+
+ASCII = /^\p{Ascii}+$/
+
+class App < Thor
+  include Thor::Actions
+  def self.source_root; File.dirname(__FILE__); end
+
+  desc "episode mp3name [, date_fname, logo]", "add, digest, id3v2, cover episode"
+  def episode(orig_mp3, date_fname=nil, logo='img/logo.jpg')
+    config = YAML.load_file('_config.yml')
+    episode_num = Dir['episodes/**/*mp3'].size + 1
+    year = Time.now.year
+    date_fname ||= Time.now.strftime('%F')
+
+    Dir.mktmpdir do |tmpdir|
+      mp3name = "#{tmpdir}/#{File.basename(orig_mp3)}"
+      copy_file(orig_mp3, mp3name, verbose: false)
+
+      Mp3Info.open(mp3name) do |mp3|
+        tag(mp3, 'artist', config['author'])
+        tag(mp3, 'album', config['title'])
+        tag(mp3, 'title', "Episode #{episode_num}")
+        tag(mp3, 'genre_s', 'Podcast')
+
+        mp3.tag.year = year
+        mp3.tag.tracknum = episode_num
+        mp3.tag2.add_picture(File.open(logo, 'rb').read)
+      end
+
+      md5 = Digest::MD5.hexdigest(File.read(mp3name))[0..15]
+      FileUtils.mkdir_p("episodes/#{year}")
+      name = "episodes/#{year}/hardcode-#{sprintf("%03d", episode_num)}-#{date_fname}-#{md5}.mp3"
+      copy_file(mp3name, name)
+    end
+  end
+
+  desc "duration mp3name", "mp3 length"
+  def duration(mp3name)
+    Mp3Info.open(mp3name) do |mp3|
+      say "duration: '#{to_time(mp3.length, '')}'"
+    end
+  end
+
+  desc "c", "pry console"
+  def c
+    Pry.start
+  end
+
+  desc "chapters some.aup", "prints chapters from audacity project with first label track"
+  def chapters(aup)
+    xml = Nokogiri::XML(File.open(aup))
+    xml.css('labeltrack:first label').map do |label|
+      time = to_time(label.attr('t').to_f)
+      puts "  - '#{time} #{label.attr('title')}'"
+    end
+  end
+
+  private
+
+  def tag(mp3, key, value)
+    # id3v1 supports only acsii
+    if ASCII.match value
+      mp3.tag[key] = value
+    else
+      mp3.tag2[key] = value
+    end
+  end
+
+  def to_time(t, ms=".%L")
+    Time.at(t).utc.strftime("%H:%M:%S#{ms}")
+  end
+
+  def puts_system(cmd)
+    puts cmd
+  end
+end
+
+App.start
