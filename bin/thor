@@ -77,10 +77,6 @@ class App < Thor
   def to_time(t, ms=".%L")
     Time.at(t).utc.strftime("%H:%M:%S#{ms}")
   end
-
-  def puts_system(cmd)
-    puts cmd
-  end
 end
 
 App.start
