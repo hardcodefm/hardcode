@@ -1,1 +1,2 @@
 *.mp3 filter=lfs diff=lfs merge=lfs -text
+episodes/2018/hardcode-003-2018-09-30-0825411f87879f89.mp3 filter=lfs diff=lfs merge=lfs -text
