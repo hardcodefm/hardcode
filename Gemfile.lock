@@ -16,12 +16,20 @@ GIT
       jekyll-admin (~> 0.4.0)
       jekyll-bootflat (~> 0.2.4)
 
+GIT
+  remote: git://github.com/razum2um/ruby-mp3info.git
+  revision: 7029569693390792d827e2f52dd55c6b8fcad5d3
+  specs:
+    ruby-mp3info (0.8.10)
+      bindata (~> 2.4.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     backports (3.11.3)
+    bindata (2.4.4)
     byebug (10.0.2)
     coderay (1.1.2)
     colorator (1.1.0)
@@ -100,7 +108,6 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rouge (3.1.1)
-    ruby-mp3info (0.8.10)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
     sass (3.5.7)
@@ -138,9 +145,9 @@ DEPENDENCIES
   nokogiri
   pry-byebug
   rake
-  ruby-mp3info
+  ruby-mp3info!
   thor
   tzinfo-data
 
 BUNDLED WITH
-   1.16.3
+   1.16.6

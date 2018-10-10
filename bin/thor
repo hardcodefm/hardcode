@@ -13,7 +13,7 @@ class App < Thor
   include Thor::Actions
   def self.source_root; File.dirname(__FILE__); end
 
-  desc "episode mp3name [, date_fname, logo]", "add, digest, id3v2, cover episode"
+  desc "episode mp3name [, date_fname, audacity.aup, logo]", "add, digest, id3v2, cover episode"
   def episode(orig_mp3, date_fname=nil, logo='img/logo.jpg')
     config = YAML.load_file('_config.yml')
     episode_num = Dir['episodes/**/*mp3'].size + 1
@@ -32,7 +32,14 @@ class App < Thor
 
         mp3.tag.year = year
         mp3.tag.tracknum = episode_num
-        mp3.tag2.add_picture(File.open(logo, 'rb').read)
+        mp3.tag2.add_picture(File.open(logo, 'rb').read) if File.exists?(logo)
+        # mp3.tag2.add_chapters(parse_chapters(aup)) if File.exists?(aup)
+        if !(fnames = Dir["_posts/#{date_fname}*.md"]).empty? && (fname = fnames.first)
+          chapters = YAML.load_file(fname)['chapters'].map { |s| s.split(' ', 2) }
+          say "Found #{chapters.size} chapters in #{fname}! Import them into MP3"
+          mp3.tag2.add_chapters(chapters, mp3.length)
+          mp3.tag2['TLEN'] ||= (mp3.length * 1000).to_i
+        end
       end
 
       md5 = Digest::MD5.hexdigest(File.read(mp3name))[0..15]
@@ -56,14 +63,20 @@ class App < Thor
 
   desc "chapters some.aup", "prints chapters from audacity project with first label track"
   def chapters(aup)
-    xml = Nokogiri::XML(File.open(aup))
-    xml.css('labeltrack:first label').map do |label|
-      time = to_time(label.attr('t').to_f)
-      puts "  - '#{time} #{label.attr('title')}'"
+    parse_chapters(aup).each do |(time, label)|
+      puts "  - '#{time} #{label}'"
     end
   end
 
   private
+
+  def parse_chapters(aup)
+    xml = Nokogiri::XML(File.open(aup))
+    xml.css('labeltrack:first label').map do |label|
+      time = to_time(label.attr('t').to_f)
+      [time, label.attr('title')]
+    end
+  end
 
   def tag(mp3, key, value)
     # id3v1 supports only acsii

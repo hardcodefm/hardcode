@@ -37,4 +37,4 @@ gem 'pry-byebug'
 gem 'rake' # need by sassc
 gem 'thor'
 gem 'nokogiri'
-gem 'ruby-mp3info'
+gem 'ruby-mp3info', github: 'razum2um/ruby-mp3info'
