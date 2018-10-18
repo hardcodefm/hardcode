@@ -22,6 +22,7 @@ document_root: /home/hardcode/hardcode
 rsync_delete: true
 # You can configure this #######################################################
 twitter_nick: hardcodefm
+fb_app_id: 1092619910901383
 language: ru
 explicit: 'no'  # 'yes'/'no'/clean
 license: CC BY 4.0

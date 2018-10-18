@@ -28,13 +28,23 @@
   <meta name="twitter:site" content="@{{ site.twitter_nick }}" />
   <meta name="twitter:title" content="{{ page.title }}" />
   <meta name="twitter:description" content="{{ page.subtitle }}" />
-  <meta name="twitter:image" content="{{site.url}}{{ page | image_with_fallback }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ page | image_with_fallback }}" />
   <meta name="twitter:player" content="{{ site.url }}/players/{{ page.slug }}" />
   <meta name="twitter:player:width" content="480" />
   <meta name="twitter:player:height" content="480" />
   <meta name="twitter:player:stream" content="{{ site | download_url_with_fallback }}/{{ page.audio | audio }}" />
   <meta name="twitter:player:stream:content_type" content="{{ page.audio | audio_type }}" />
 
+  {% if site.description %}<meta property="fb:app_id" content="{{ site.fb_app_id }}">{% endif %}
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:description" content="{{ page.subtitle }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}{{ page | image_with_fallback }}" />
+  <meta property="og:audio" content="{{ site | download_url_with_fallback }}/{{ page.audio | audio }}" />
+  <meta property="og:audio:secure_url" content="{{ site | download_url_with_fallback }}/{{ page.audio | audio }}" />
+  <meta property="og:audio:type" content="audio/mpeg">
+  <meta property="og:type" content="music.song" />
 
   {% if site.flattr_uid %}{% include flattr_loader.html %}{% endif %}
   {% if site.disqus_shortname %}
