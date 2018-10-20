@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/razum2um/jekyll-bootflat.git
-  revision: c352f189ad8147f94abea00bb0e546ea97c2403f
+  revision: 6f2c78147fc14c5b7fed28d3109fecd188bd3695
+  branch: master
   specs:
     jekyll-bootflat (0.2.4)
       font-awesome-sass (~> 5.2)
@@ -8,9 +9,10 @@ GIT
 
 GIT
   remote: git://github.com/razum2um/jekyll-octopod.git
-  revision: 9018a5455eddaaf9e4391846237214db894479e3
+  revision: 3511e257274583bd26385381fa08054df96517c3
+  branch: master
   specs:
-    jekyll-octopod (0.9.6)
+    jekyll-octopod (0.9.9)
       facets (~> 3.1)
       jekyll (~> 3.3, >= 3.3.1)
       jekyll-admin (~> 0.4.0)
@@ -28,7 +30,7 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    backports (3.11.3)
+    backports (3.11.4)
     bindata (2.4.4)
     byebug (10.0.2)
     coderay (1.1.2)
@@ -40,13 +42,13 @@ GEM
     eventmachine (1.2.7)
     facets (3.1.0)
     ffi (1.9.25)
-    font-awesome-sass (5.2.0)
+    font-awesome-sass (5.4.1)
       sassc (>= 1.11)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    jekyll (3.8.3)
+    jekyll (3.8.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -71,10 +73,10 @@ GEM
       sass (~> 3.4)
     jekyll-seo-tag (2.5.0)
       jekyll (~> 3.3)
-    jekyll-watch (2.0.0)
+    jekyll-watch (2.1.2)
       listen (~> 3.0)
     kramdown (1.17.0)
-    liquid (4.0.0)
+    liquid (4.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -97,7 +99,7 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     rack (1.6.10)
     rack-protection (1.5.5)
       rack
@@ -107,17 +109,17 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rouge (3.1.1)
+    rouge (3.3.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
-    sass (3.5.7)
+    sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (1.12.1)
+    sassc (2.0.0)
       ffi (~> 1.9.6)
-      sass (>= 3.3.0)
+      rake
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)

@@ -28,8 +28,8 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
-gem 'jekyll-octopod', github: 'razum2um/jekyll-octopod'
-gem 'jekyll-bootflat', github: 'razum2um/jekyll-bootflat'
+gem 'jekyll-octopod', github: 'razum2um/jekyll-octopod', branch: 'master'
+gem 'jekyll-bootflat', github: 'razum2um/jekyll-bootflat', branch: 'master'
 
 gem 'jekyll-analytics'
 
