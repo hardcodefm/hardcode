@@ -99,11 +99,24 @@
   <h4>Обратная связь</h4>
 
   <ul>
-  <li><a href="https://twitter.com/{{ site.twitter_nick }}"
-     class="button btn-primary btn-sm"
-     data-show-count="false">
-      <i class="fab fa-twitter"></i>&nbsp;Следите за @{{ site.twitter_nick }}
+  <li><a href="https://twitter.com/{{ site.twitter_nick }}">
+      <i class="fab fa-twitter"></i>&nbsp;@{{ site.twitter_nick }}
   </a></li>
+  {% if site.telegram_url %}
+  <li><a href="{{ site.telegram_url }}">
+      <i class="fab fa-telegram"></i>&nbsp;Telegram канал
+  </a></li>
+  {% endif %}
+  {% if site.facebook_url %}
+  <li><a href="{{ site.facebook_url }}">
+      <i class="fab fa-facebook"></i>&nbsp;Группа facebook
+  </a></li>
+  {% endif %}
+  {% if site.vkontakte_url %}
+  <li><a href="{{ site.vkontakte_url }}">
+      <i class="fab fa-vk"></i>&nbsp;Группа vkontakte
+  </a></li>
+  {% endif %}
   <li><a href="mailto:{{ site.email }}">
       <i class="fa fa-envelope"></i>&nbsp;Напишите нам
   </a></li>
