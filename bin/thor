@@ -11,7 +11,7 @@ ASCII = /^\p{Ascii}+$/
 
 class App < Thor
   include Thor::Actions
-  def self.source_root; File.dirname(__FILE__); end
+  def self.source_root; File.expand_path('../..', __FILE__); end
 
   desc "episode mp3name [, date_fname, audacity.aup, logo]", "add, digest, id3v2, cover episode"
   def episode(orig_mp3, date_fname=nil, logo='img/logo.jpg')
@@ -47,6 +47,14 @@ class App < Thor
       name = "episodes/#{year}/hardcode-#{sprintf("%03d", episode_num)}-#{date_fname}-#{md5}.mp3"
       copy_file(mp3name, name)
     end
+  end
+
+  desc "copy with md5 suffix", "file name"
+  def md5(fname)
+    md5 = Digest::MD5.hexdigest(File.read(fname))[0..15]
+    ext = File.extname(fname)
+    name = "#{fname.sub(ext, '')}-#{md5}#{ext}"
+    copy_file(fname, name)
   end
 
   desc "duration mp3name", "mp3 length"
