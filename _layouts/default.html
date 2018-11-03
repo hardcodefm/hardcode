@@ -14,7 +14,8 @@
   {% endcomment %}
   {{ site | episode_feeds_html }}
 
-  <link rel="icon" href="{{site.url}}/img/favicon.ico?_=0b1a16" />
+  {% include favicon.html %}
+
   <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
 
   <script type='text/javascript' src="{{ site.url }}/assets/js/jquery.min.js"></script>
