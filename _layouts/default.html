@@ -16,6 +16,11 @@
 
   {% include favicon.html %}
 
+  <meta property="og:title" content="{{ site.title }} - {{ site.subtitle }}" />
+  {% if site.description %}<meta property="og:description" content="{{ site.description | markdownify | strip_html }}" />{% endif %}
+  <meta property="og:url" content="{{ site.url }}" />
+  <meta property="og:image" content="{{ site.url }}/img/logo.jpg" />
+
   <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
 
   <script type='text/javascript' src="{{ site.url }}/assets/js/jquery.min.js"></script>
