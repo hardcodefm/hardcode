@@ -60,6 +60,7 @@ theme: jekyll-bootflat
 exclude:
   - bin
   - vendor
+  - design
 
 defaults:
   -
