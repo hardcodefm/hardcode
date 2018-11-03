@@ -24,4 +24,5 @@ find _site -type f -iname '*css' -exec brotli -9 -k -f {} \;
 find _site -type f -iname '*svg' -exec zopfli -i1000 {} \;
 find _site -type f -iname '*svg' -exec brotli -9 -k -f {} \;
 
+cp -f _site/img/favicon.ico _site/favicon.ico
 octopod deploy
