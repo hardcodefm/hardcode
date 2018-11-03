@@ -25,4 +25,5 @@ find _site -type f -iname '*svg' -exec zopfli -i1000 {} \;
 find _site -type f -iname '*svg' -exec brotli -9 -k -f {} \;
 
 cp -f _site/img/favicon.ico _site/favicon.ico
+cp -f _site/img/browserconfig.xml _site/browserconfig.xml
 octopod deploy
