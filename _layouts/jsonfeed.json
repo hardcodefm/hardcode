@@ -27,7 +27,7 @@ layout: null
     "title": {{ post.title | jsonify }},
     "summary": "",
     "content_text": {{ post.content | strip_html | strip_newlines | jsonify }},
-    "content_html": {{ post.content | strip_newlines | jsonify }},
+    "content_html": {{ post.content | social_links: post.url | strip_newlines | jsonify }},
     "url": "{{ post.url | absolute_url }}",
     {%- if post.tags.size > 0 -%}"tags": {{ post.tags | jsonify }}, {%- endif -%}
     {% if post.audio.size > 1 %}
