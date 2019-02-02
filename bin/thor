@@ -13,12 +13,32 @@ class App < Thor
   include Thor::Actions
   def self.source_root; File.expand_path('../..', __FILE__); end
 
+  desc "Same as episode but also puts md in propre place and updates metadata", "md_file, orig_mp3, date_fname, post_pic, aup"
+  def post(md_fname, orig_mp3, post_pic, aup)
+    date_fname = Date.today.to_s
+    episode_num = last_episode_idx + 1
+    chaps = parse_chapters(aup)
+    # mp3 will have just logo pic in case of copyrights not to reupload
+    final_mp3_name = episode(orig_mp3, date_fname, 'img/logo.jpg', chaps)
+    final_md_name = "_posts/#{date_fname}-episode#{sprintf('%03d', episode_num)}.md"
+    final_pic_name = md5_post_pic(post_pic)
+
+    copy_file(md_fname, final_md_name)
+    gsub_file(final_md_name, /duration:.*/, "duration: '#{duration(final_mp3_name)}'")
+    gsub_file(final_md_name, /image:.*/, "image: '#{final_pic_name}'")
+    insert_into_file(final_md_name, after: "chapters:\n") { format_chapters(chaps) + "\n" }
+    insert_into_file(final_md_name, after: "audio:\n")  { "  mp3: #{final_mp3_name}\n" }
+    # system "git add #{final_mp3_name} #{final_md_name} img/#{final_pic_name}"
+    system "git commit -m 'Episode #{episode_num}'"
+  end
+
   desc "episode mp3name [, date_fname, audacity.aup, logo]", "add, digest, id3v2, cover episode"
-  def episode(orig_mp3, date_fname=nil, logo='img/logo.jpg')
+  def episode(orig_mp3, date_fname=nil, logo='img/logo.jpg', chapters=nil)
     config = YAML.load_file('_config.yml')
-    episode_num = Dir['episodes/**/*mp3'].size + 1
+    episode_num = last_episode_idx + 1
     year = Time.now.year
     date_fname ||= Time.now.strftime('%F')
+    final_mp3_name = nil
 
     Dir.mktmpdir do |tmpdir|
       mp3name = "#{tmpdir}/#{File.basename(orig_mp3)}"
@@ -34,7 +54,11 @@ class App < Thor
         mp3.tag.tracknum = episode_num
         mp3.tag2.add_picture(File.open(logo, 'rb').read) if File.exists?(logo)
         # mp3.tag2.add_chapters(parse_chapters(aup)) if File.exists?(aup)
-        if !(fnames = Dir["_posts/#{date_fname}*.md"]).empty? && (fname = fnames.first)
+        if chapters
+          mp3.tag2.add_chapters(chapters, mp3.length)
+          mp3.tag2['TLEN'] ||= (mp3.length * 1000).to_i
+        elsif !(fnames = Dir["_posts/#{date_fname}*.md"]).empty? && (fname = fnames.first)
+          say "Parse chapters from md: #{fname}"
           chapters = YAML.load_file(fname)['chapters'].map { |s| s.split(' ', 2) }
           say "Found #{chapters.size} chapters in #{fname}! Import them into MP3"
           mp3.tag2.add_chapters(chapters, mp3.length)
@@ -44,24 +68,29 @@ class App < Thor
 
       md5 = Digest::MD5.hexdigest(File.read(mp3name))[0..15]
       FileUtils.mkdir_p("episodes/#{year}")
-      name = "episodes/#{year}/hardcode-#{sprintf("%03d", episode_num)}-#{date_fname}-#{md5}.mp3"
-      copy_file(mp3name, name)
+      final_mp3_name = "episodes/#{year}/hardcode-#{sprintf("%03d", episode_num)}-#{date_fname}-#{md5}.mp3"
+      copy_file(mp3name, final_mp3_name)
     end
+    final_mp3_name
   end
 
   desc "copy with md5 suffix", "file name"
-  def md5(fname)
+  def md5_post_pic(fname)
     md5 = Digest::MD5.hexdigest(File.read(fname))[0..15]
     ext = File.extname(fname)
-    name = "#{fname.sub(ext, '')}-#{md5}#{ext}"
-    copy_file(fname, name)
+    episode_num = last_episode_idx + 1
+    name = "ep/ep#{episode_num}-#{md5}#{ext}"
+    copy_file(fname, "img/#{name}")
+    name
   end
 
   desc "duration mp3name", "mp3 length"
   def duration(mp3name)
+    length = 0
     Mp3Info.open(mp3name) do |mp3|
-      say "duration: '#{to_time(mp3.length, '')}'"
+      length = to_time(mp3.length , '')
     end
+    length
   end
 
   desc "c", "pry console"
@@ -69,14 +98,23 @@ class App < Thor
     Pry.start
   end
 
-  desc "chapters some.aup", "prints chapters from audacity project with first label track"
+  desc "chapters some.aup", "rints chapters from audacity project with first label track"
   def chapters(aup)
-    parse_chapters(aup).each do |(time, label)|
-      puts "  - '#{time} #{label}'"
-    end
+    format_chapters(aup)
   end
 
   private
+
+  def format_chapters(chapters)
+    chapters.each_with_index.map do |(time, label), idx|
+      time = "00:00:00.000" if idx.zero?
+      "  - '#{time} #{label}'"
+    end.join("\n")
+  end
+
+  def last_episode_idx
+    Dir['_posts/*md'].sort.last.match(/episode(\d+)/)[1].to_i
+  end
 
   def parse_chapters(aup)
     xml = Nokogiri::XML(File.open(aup))
