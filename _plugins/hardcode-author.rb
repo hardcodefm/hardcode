@@ -11,6 +11,10 @@ module HardcodeAuthor
   def hardcode_author_link(name)
     AUTHOR_LINKS.fetch(name)
   end
+
+  def shuffle(arr)
+    arr.dup.shuffle
+  end
 end
 
 Liquid::Template.register_filter(HardcodeAuthor)

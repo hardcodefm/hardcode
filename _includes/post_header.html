@@ -14,7 +14,7 @@
     </small> <br />
     <small>{{ post.subtitle }}</small>
   </h1>
-  {% assign authors = post.author | split: ", " %}
+  {% assign authors = post.author | split: ", " | shuffle %}
   {% for author in authors %}
   <a target="_blank" rel="nofollow noopener noreferrer" class="author" href="{{ author | hardcode_author_link }}">
     <i class="fa fa-user"></i>{{ author }}
