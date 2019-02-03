@@ -5,11 +5,16 @@ module HardcodeAuthor
     'Иван' => 'https://github.com/shredder-rull',
     'Денис' => 'https://github.com/zloirock',
     'Андрей' => 'https://github.com/andrewzhurov',
-    'Николай' => 'https://github.com/niquola'
+    'Николай' => 'https://github.com/niquola',
+    'Андрей Руденко' => 'https://github.com/prepor'
   }
 
   def hardcode_author_link(name)
     AUTHOR_LINKS.fetch(name)
+  end
+
+  def author_first_name(name)
+    name.split(/\s+/).first
   end
 
   def shuffle(arr)

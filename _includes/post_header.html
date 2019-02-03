@@ -17,7 +17,7 @@
   {% assign authors = post.author | split: ", " | shuffle %}
   {% for author in authors %}
   <a target="_blank" rel="nofollow noopener noreferrer" class="author" href="{{ author | hardcode_author_link }}">
-    <i class="fa fa-user"></i>{{ author }}
+    <i class="fa fa-user"></i>{{ author | author_first_name }}
   </a>
   {% endfor %}
 </div>
