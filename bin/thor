@@ -100,7 +100,7 @@ class App < Thor
 
   desc "chapters some.aup", "rints chapters from audacity project with first label track"
   def chapters(aup)
-    format_chapters(aup)
+    say format_chapters(parse_chapters(aup))
   end
 
   private
