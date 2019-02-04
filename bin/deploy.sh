@@ -15,6 +15,10 @@ checkinstall zopfli
 checkinstall brotli
 
 JEKYLL_ENV=production octopod build
+
+# strange but fonts was not copied
+cp -f $(bundle show font-awesome-sass)/assets/fonts/font-awesome/* _site/assets/fonts/
+
 find _site -type f -iname '*js' -exec zopfli -i1000 {} \;
 find _site -type f -iname '*js' -exec brotli -9 -k -f {} \;
 
