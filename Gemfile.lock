@@ -149,7 +149,6 @@ DEPENDENCIES
   rake
   ruby-mp3info!
   thor
-  tzinfo-data
 
 BUNDLED WITH
    1.17.1
