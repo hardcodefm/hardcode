@@ -6,14 +6,13 @@ navigation: 1
 
 # Как участвовать в выпуске
 
-Добываем себе [сертификат для
-логина](https://secure.instantssl.com/products/frontpage?area=SecureEmailCertificate)
-Оно, к сожалению, не работает в хроме (на август 2018), можно через firefox,
-потом экспортируем этот сертификат из ff.
-  
-Устанавливаем [Mumble](https://wiki.mumble.info/wiki/Main_Page). Советую
+Устанавливаем [Mumble c wiki.mumble.info](https://wiki.mumble.info/wiki/Main_Page). Советую
 Development Snapshot, 1.3.0 (1.2 это qt4, на маке отвратная и бажная),
-используя полученный сертификат (настройки в установщике можно оставить стандартные)
+в настройщике можно использовать "Automatic certificate creation". Будет self-signed.
+
+Настройки в установщике можно оставить стандартные. После запуска и коннекта -
+зайдите в настройки Notifications (1.3.0) и уберите галочки, чтобы не было
+голоса при mute/unmute.
 
 ## Почему не skype/hangouts/webrtc чат?
 
@@ -23,6 +22,13 @@ Mumble это реально неплохая вещь, которая дает 
 ## Подключение к серверу Mumble
 
 ```
-address: mumble.razum2um.me
+address: mumble.hardcode.fm
 port: 64738
 ```
+
+## Ъ-mode
+
+Можно добыть себе [бесплатный, подписанный, личный сертификат для
+логина](https://secure.instantssl.com/products/frontpage?area=SecureEmailCertificate).
+Может еще пригодится :) Оно, к сожалению, не работает в хроме (на август 2018),
+можно через firefox, потом экспортируем этот сертификат из ff и в установщике "Import"
