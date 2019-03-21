@@ -22,9 +22,11 @@ Mumble это реально неплохая вещь, которая дает 
 ## Подключение к серверу Mumble
 
 ```
-address: mumble.hardcode.fm
+address: hardcode.fm
 port: 64738
 ```
+
+username по выбору :)
 
 ## Ъ-mode
 
