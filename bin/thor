@@ -108,7 +108,7 @@ class App < Thor
   def format_chapters(chapters)
     chapters.each_with_index.map do |(time, label), idx|
       time = "00:00:00.000" if idx.zero?
-      "  - '#{time} #{label}'"
+      %Q{  - "#{time} #{label}"}
     end.join("\n")
   end
 
