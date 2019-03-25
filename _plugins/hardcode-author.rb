@@ -7,7 +7,8 @@ module HardcodeAuthor
     'Андрей' => 'https://github.com/andrewzhurov',
     'Николай' => 'https://github.com/niquola',
     'Андрей Руденко' => 'https://github.com/prepor',
-    'Роман' => 'https://github.com/roman01la'
+    'Роман' => 'https://github.com/roman01la',
+    'Андрей Зайцев' => 'https://github.com/zajac'
   }
 
   def hardcode_author_link(name)
